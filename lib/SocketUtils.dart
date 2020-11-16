@@ -15,7 +15,6 @@ class SocketUtils {
 
     socketIO.on("connect", (data) {
       print("Socket Successfully Connected...");
-      print(data);
     });
 
     socketIO.on("disconnect", (data) {
