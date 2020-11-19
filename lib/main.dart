@@ -1,3 +1,4 @@
+import 'package:Socket_Test_App/ControllerTest.dart';
 import 'package:Socket_Test_App/SocketUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
@@ -76,6 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  TestAppController testAppController;
+  bool status = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,11 +94,21 @@ class _MyHomePageState extends State<MyHomePage> {
               'Press To Connect.',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Container(
+              child: TestApp(
+                getController: (testCont) {
+                  testAppController = testCont;
+                },
+              ),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          status = !status;
+          testAppController.toggle(status);
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
