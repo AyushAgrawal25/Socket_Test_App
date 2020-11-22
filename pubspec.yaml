@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
 
   socket_io_client:
+  dio:
+  provider:
 
 
   # The following adds the Cupertino Icons font to your application.
